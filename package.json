@@ -8,7 +8,6 @@
 		"ios": "expo start --ios",
 		"web": "expo start --web",
 		"test": "jest --watchAll",
-		"lint": "expo lint",
 		"format": "biome check --no-errors-on-unmatched --write ."
 	},
 	"jest": {
