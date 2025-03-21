@@ -1,0 +1,10 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      run: zsh -c nvm use 22 bun format
+      skip_on_error: false
+      fail_text: |
+        ❌ Linting failed! Please fix the errors before committing.
+        🔍 Error details:
+        {output}
