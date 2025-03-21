@@ -8,3 +8,12 @@ pre-commit:
         ❌ Linting failed! Please fix the errors before committing.
         🔍 Error details:
         {output}
+
+commit-msg:
+  commands:
+    commitlint:
+      run: zsh -c nvm use 22 bun commitlint --edit $1
+      fail_text: |
+        ❌ Your commit message does not follow the Conventional Commits guidelines.
+        💡 Please modify your commit message and try again.
+
