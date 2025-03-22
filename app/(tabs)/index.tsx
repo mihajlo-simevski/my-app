@@ -6,6 +6,7 @@ export default function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text style={{ color: textColor }}>Home Screen</Text>
+      <Text className="text-red-500">Hello Tailwind</Text>
     </View>
   );
 }
