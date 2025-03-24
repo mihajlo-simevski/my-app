@@ -9,8 +9,9 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useRef, useState } from "react";
-import { Platform } from "react-native";
+import { Platform, View } from "react-native";
 import "react-native-reanimated";
+import { ThemeToggle } from "~/components/ThemeToggle";
 import { NAV_THEME } from "~/lib/constants";
 import { useColorScheme } from "~/lib/useColorScheme";
 import { useIsomorphicLayoutEffect } from "~/lib/useIsomorphicLayoutEffect";
@@ -37,16 +38,14 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
+  // Hide splash screen when fonts are loaded
   useEffect(() => {
-    if (loaded) {
+    if (loaded && isColorSchemeLoaded) {
       SplashScreen.hideAsync();
     }
-  }, [loaded]);
+  }, [loaded, isColorSchemeLoaded]);
 
-  if (!loaded) {
-    return null;
-  }
-
+  // Handle initial setup (color scheme readiness and web-specific tweaks)
   useIsomorphicLayoutEffect(() => {
     if (hasMounted.current) {
       return;
@@ -56,18 +55,29 @@ export default function RootLayout() {
       // Adds the background color to the html element on web
       document.documentElement.classList.add("bg-background");
     }
+
     setIsColorSchemeLoaded(true);
     hasMounted.current = true;
   }, []);
 
-  if (!isColorSchemeLoaded) {
+  if (!loaded || !isColorSchemeLoaded) {
     return null;
   }
 
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerRight: () => (
+              <View className="web:mr-3">
+                <ThemeToggle />
+              </View>
+            ),
+            headerTitle: "PuffQ",
+          }}
+        />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
