@@ -13,3 +13,4 @@
 - bun install @hookform/resolvers
 - bun add zod 
 - bun add @tanstack/react-query
+- bun install zustand
