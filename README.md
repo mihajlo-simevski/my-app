@@ -9,3 +9,6 @@
 - bunx tailwindcss init
 - bunx expo install tailwindcss-animate class-variance-authority clsx tailwind-merge
 - bun install react-native-svg lucide-react-native
+- bun install react-hook-form
+- bun install @hookform/resolvers
+- bun add zod 
