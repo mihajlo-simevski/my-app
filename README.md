@@ -14,3 +14,7 @@
 - bun add zod 
 - bun add @tanstack/react-query
 - bun install zustand
+- bun install react-native-mmkv
+- bun install @shopify/flash-list
+- bun install axios
+- bun install i18next
