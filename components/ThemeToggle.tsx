@@ -1,8 +1,9 @@
 import { setAndroidNavigationBar } from "@/lib/android-navigation-bar";
 import { useColorScheme } from "@/lib/useColorScheme";
 import { cn } from "@/lib/utils";
-import { MoonStar, Sun } from "lucide-react-native";
 import { Pressable, View } from "react-native";
+import { MoonStar } from "~/lib/icons/Moon";
+import { Sun } from "~/lib/icons/Sun";
 
 export function ThemeToggle() {
   const { isDarkColorScheme, setColorScheme } = useColorScheme();
@@ -21,13 +22,13 @@ export function ThemeToggle() {
       {({ pressed }) => (
         <View
           className={cn(
-            "flex-1 aspect-square pt-0.5 justify-center items-start web:px-5",
+            "flex-1 aspect-square pt-0.5 justify-center items-start web:px-4",
             pressed && "opacity-70"
           )}
         >
           {isDarkColorScheme ? (
             <MoonStar
-              className="text-foreground dark:text-white"
+              className="text-foreground"
               size={23}
               strokeWidth={1.25}
             />

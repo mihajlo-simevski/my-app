@@ -9,7 +9,7 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useRef, useState } from "react";
-import { Platform, View } from "react-native";
+import { Platform } from "react-native";
 import "react-native-reanimated";
 import { ThemeToggle } from "~/components/ThemeToggle";
 import { NAV_THEME } from "~/lib/constants";
@@ -70,11 +70,7 @@ export default function RootLayout() {
         <Stack.Screen
           name="(tabs)"
           options={{
-            headerRight: () => (
-              <View className="web:mr-3">
-                <ThemeToggle />
-              </View>
-            ),
+            headerRight: () => <ThemeToggle />,
             headerTitle: "PuffQ",
           }}
         />
