@@ -71,7 +71,7 @@ export default function RootLayout() {
           name="(tabs)"
           options={{
             headerRight: () => <ThemeToggle />,
-            headerTitle: "Split Scan",
+            headerTitle: "My App",
           }}
         />
         <Stack.Screen name="+not-found" />
